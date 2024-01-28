@@ -122,6 +122,7 @@ metrics:
   # Create a prometheus-operator servicemonitor
   serviceMonitor:
     enabled: false
+    # namespace: defaults to release namespace
     labels: {}
   # prometheus-operator PrometheusRule defining alerting rules for a Prometheus instance
   prometheusRule:
