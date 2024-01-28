@@ -127,6 +127,7 @@ metrics:
   # prometheus-operator PrometheusRule defining alerting rules for a Prometheus instance
   prometheusRule:
     enabled: false
+    # namespace: defaults to release namespace
     labels: {}
     rules: {}
 
