@@ -19,7 +19,7 @@ serviceAccount:
 
 image:
   repository: registry
-  tag: 2.8.1
+  tag: # defaults to the chart appVersion
   pullPolicy: IfNotPresent
 # imagePullSecrets:
     # - name: docker
