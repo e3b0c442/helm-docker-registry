@@ -3,6 +3,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: {{ template "docker-registry.fullname" . }}-servicemonitor
+	namespace: {{ .Values.metrics.serviceMonitor.namespace | default .Values.namespace | default .Release.Namespace }}
   labels:
     app: {{ template "docker-registry.name" . }}-metrics
     release: {{ .Release.Name }}

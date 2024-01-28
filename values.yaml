@@ -19,7 +19,8 @@ serviceAccount:
 
 image:
   repository: registry
-  tag: 2.8.1
+# defaults to the chart appVersion
+# tag: 
   pullPolicy: IfNotPresent
 # imagePullSecrets:
     # - name: docker
@@ -74,6 +75,9 @@ storage: filesystem
 # Set this to name of secret for tls certs
 # tlsSecretName: registry.docker.example.com
 secrets:
+#  haSharedSecretRef:
+#    name:
+#    key: haSharedSecret
   haSharedSecret: ""
   htpasswd: ""
 # Secrets for Azure
@@ -122,10 +126,14 @@ metrics:
   # Create a prometheus-operator servicemonitor
   serviceMonitor:
     enabled: false
+  # defaults to release namespace
+  # namespace:
     labels: {}
   # prometheus-operator PrometheusRule defining alerting rules for a Prometheus instance
   prometheusRule:
     enabled: false
+  # defaults to release namespace
+  # namespace: defaults to release namespace
     labels: {}
     rules: {}
 
