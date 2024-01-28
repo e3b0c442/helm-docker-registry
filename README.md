@@ -17,13 +17,13 @@ This chart will do the following:
 First, add the repo:
 
 ```console
-$ helm repo add twuni https://helm.twun.io
+$ helm repo add helm-docker-registry https://e3b0c442.github.io/helm-docker-registry
 ```
 
 To install the chart, use the following:
 
 ```console
-$ helm install twuni/docker-registry
+$ helm install helm-docker-registry/docker-registry
 ```
 
 ## Configuration
@@ -35,7 +35,7 @@ their default values.
 |:----------------------------|:-------------------------------------------------------------------------------------------|:----------------|
 | `image.pullPolicy`          | Container pull policy                                                                      | `IfNotPresent`  |
 | `image.repository`          | Container image to use                                                                     | `registry`      |
-| `image.tag`                 | Container image tag to deploy                                                              | `2.7.1`         |
+| `image.tag`                 | Container image tag to deploy                                                              | `2.8.3`         |
 | `imagePullSecrets`          | Specify image pull secrets                                                                 | `nil` (does not add image pull secrets to deployed pods) |
 | `persistence.accessMode`    | Access mode to use for PVC                                                                 | `ReadWriteOnce` |
 | `persistence.enabled`       | Whether to use a PVC for the Docker storage                                                | `false`         |
@@ -77,6 +77,8 @@ their default values.
 | `secrets.swift.username`    | Username for Swift configuration                                                           | `nil`           |
 | `secrets.swift.password`    | Password for Swift configuration                                                           | `nil`           |
 | `secrets.haSharedSecret`    | Shared secret for Registry                                                                 | `nil`           |
+| `secrets.haSharedSecretRef.name` | Name for existing shared secret ref																									 | `""`						 |
+| `secrets.haSharedSecretRef.key`  | Key for existing shared secret ref                                                    | `haSharedSecret` |
 | `configData`                | Configuration hash for docker                                                              | `nil`           |
 | `s3.region`                 | S3 region                                                                                  | `nil`           |
 | `s3.regionEndpoint`         | S3 region endpoint                                                                         | `nil`           |
