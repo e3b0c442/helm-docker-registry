@@ -27,8 +27,13 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 - name: REGISTRY_HTTP_SECRET
   valueFrom:
     secretKeyRef:
+{{- if .Values.secrets.haSharedSecretRef.name }}
+			name: {{ .Values.secrets.haSharedSecretRef.name }}
+			key: {{ .Values.secrets.haSharedSecretRef.key | default "haSharedSecret" }}
+{{- else }}
       name: {{ template "docker-registry.fullname" . }}-secret
       key: haSharedSecret
+{{- end }}
 
 {{- if .Values.secrets.htpasswd }}
 - name: REGISTRY_AUTH
