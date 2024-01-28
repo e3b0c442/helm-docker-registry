@@ -1,0 +1,20 @@
+apiVersion: v1
+entries:
+  docker-registry:
+  - apiVersion: v1
+    appVersion: 2.8.3
+    created: "2024-01-28T21:02:22.702705298Z"
+    description: An updated Helm chart for Docker Registry
+    digest: 95c4ac66765ac966a5d1b289338333098c58b6ac458ee188ec8226a0526e36e2
+    home: https://hub.docker.com/_/registry/
+    kubeVersion: '>=1.23.0-0'
+    maintainers:
+    - email: nick@e3b0c442.dev
+      name: Nick Meyer
+    name: docker-registry
+    sources:
+    - https://github.com/docker/distribution-library-image
+    urls:
+    - https://github.com/e3b0c442/helm-docker-registry/releases/download/docker-registry-2.3.0/docker-registry-2.3.0.tgz
+    version: 2.3.0
+generated: "2024-01-28T21:02:22.702714545Z"
