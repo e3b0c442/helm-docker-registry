@@ -27,7 +27,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 - name: REGISTRY_HTTP_SECRET
   valueFrom:
     secretKeyRef:
-{{- if ( and .Values.secrets.haSharedSecret .Values.secrets.haSharedSecretRef.name ) }}
+{{- if ( and .Values.secrets.haSharedSecretRef .Values.secrets.haSharedSecretRef.name ) }}
 			name: {{ .Values.secrets.haSharedSecretRef.name }}
 			key: {{ .Values.secrets.haSharedSecretRef.key | default "haSharedSecret" }}
 {{- else }}
