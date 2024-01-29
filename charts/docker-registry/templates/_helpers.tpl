@@ -28,8 +28,8 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
   valueFrom:
     secretKeyRef:
 {{- if ( and .Values.secrets.haSharedSecretRef .Values.secrets.haSharedSecretRef.name ) }}
-			name: {{ .Values.secrets.haSharedSecretRef.name }}
-			key: {{ .Values.secrets.haSharedSecretRef.key | default "haSharedSecret" }}
+      name: {{ .Values.secrets.haSharedSecretRef.name }}
+      key: {{ .Values.secrets.haSharedSecretRef.key | default "haSharedSecret" }}
 {{- else }}
       name: {{ template "docker-registry.fullname" . }}-secret
       key: haSharedSecret
