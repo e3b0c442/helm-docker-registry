@@ -6,7 +6,6 @@ metadata:
   namespace: {{ .Values.metrics.serviceMonitor.namespace | default .Values.namespace | default .Release.Namespace }}
   labels:
     app: {{ template "docker-registry.name" . }}-metrics
-    release: {{ .Release.Name }}
 {{- if .Values.metrics.serviceMonitor.labels }}
 {{ toYaml .Values.metrics.serviceMonitor.labels | indent 4 }}
 {{- end }}
